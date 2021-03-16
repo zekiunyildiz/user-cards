@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import SocialCard from "./SocialCard";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -19,7 +20,13 @@ function App() {
     })();
   },[]);
 
-  return <div className="App"></div>;
+  return (
+  <div className="App">
+    {users.map((user, index)=>(
+      <SocialCard userData={user} key={index}/>
+    ))}
+  </div>
+  )
 }
 
 export default App;
